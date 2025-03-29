@@ -19,7 +19,7 @@ const InputComponent = () => {
     try {
 
       const apiKey = import.meta.env.VITE_Gemini_API_key;
-      const systemPrompt = "You are an AI-powered sentence corrector. Your task is to receive text as input and provide corrected versions of the sentences, focusing on grammar, spelling, punctuation, and clarity. Maintain the original meaning and tone of the input as much as possible.";
+      const systemPrompt = "You are an AI-powered sentence corrector. Your task is to receive text as input and provide corrected versions of the sentences, focusing on grammar, spelling, punctuation, and clarity. Maintain the original meaning and tone of the input as much as possible. If any other type of input is given return the sentence as it is, do not generate anything else, your only job is to correct the sentence. You have to either correct the sentence or return the input as it is.";
       const sentence = text;
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });

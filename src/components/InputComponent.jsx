@@ -49,7 +49,7 @@ const InputComponent = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-black bg-opacity-15 shadow-[10px_9px_24px_-14px_rgba(59,_130,_246,_0.5)] p-6 w-full bg-white/10 rounded-xl p-6 border border-white/10 hover:border-purple-400 transition-all duration-300 shadow-inner"
+      className=""
     >
       <label htmlFor="message" className="block text-white text-lg font-medium mb-2">
         Your Text
@@ -63,9 +63,9 @@ const InputComponent = () => {
       ></textarea>
       <button
         type="submit"
-        className="w-full mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors focus:outline-none"
+        className="w-full mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors focus:outline-none border-purple-400 transition-all duration-300 shadow-inner"
       >
-        Submit
+        Correct the Input
       </button>
     </form>
   );

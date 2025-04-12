@@ -13,7 +13,7 @@ const OutputComponent = () => {
   }
 
   return (
-    <div className="bg-black bg-opacity-15 p-4 shadow-[10px_9px_24px_-14px_rgba(59,_130,_246,_0.5)]  max-w-md mx-auto mt-8 bg-white/10 rounded-xl p-6 border border-white/10 hover:border-purple-400 transition-all duration-300 shadow-inner">
+    <div className="bg-black bg-opacity-15 p-4  max-w-md mx-auto mt-8 bg-white/10 rounded-xl p-6 border border-white/10">
 
       {currentChat.original_text ?
 

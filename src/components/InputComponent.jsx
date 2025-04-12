@@ -49,7 +49,7 @@ const InputComponent = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-black bg-opacity-15 shadow-[10px_9px_24px_-14px_rgba(59,_130,_246,_0.5)] p-6 w-full"
+      className="bg-black bg-opacity-15 shadow-[10px_9px_24px_-14px_rgba(59,_130,_246,_0.5)] p-6 w-full bg-white/10 rounded-xl p-6 border border-white/10 hover:border-purple-400 transition-all duration-300 shadow-inner"
     >
       <label htmlFor="message" className="block text-white text-lg font-medium mb-2">
         Your Text
@@ -59,7 +59,7 @@ const InputComponent = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Write your text here..."
-        className="w-full h-32 px-4 py-2 bg-transparent text-white focus:outline-none"
+        className="w-full h-32 px-4 py-2 bg-transparent text-white focus:outline-none "
       ></textarea>
       <button
         type="submit"

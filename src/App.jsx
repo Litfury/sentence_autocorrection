@@ -6,6 +6,8 @@ import NotFound from './Pages/NotFound.jsx'
 import Home from './Pages/Home'
 import HistoryPage from './Pages/HistoryPage'
 import ProtectedRoute from './Pages/ProtectedRoute.jsx'
+import Plagarism from './Pages/Plagarism.jsx'
+import Sentence from './Pages/Sentence.jsx'
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
           <Route path='/' element={<ProtectedRoute ><Home /></ProtectedRoute>} />
           <Route path='/history' element={<ProtectedRoute ><HistoryPage /></ProtectedRoute>} />
           <Route path='*' element={<NotFound />} />
+          <Route path='/sentence' element={<ProtectedRoute ><Sentence /></ProtectedRoute>} />
+          <Route path='/plagarism' element={<ProtectedRoute ><Plagarism /></ProtectedRoute>} />
         </Routes>
     </>
   )

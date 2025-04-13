@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
         <nav className="fixed w-full p-4 top-0 bg-transparent text-white shadow-md">
             <div className="container mx-auto flex justify-between items-center">
-                <h1 className="text-base font-bold">Sentence Corrector</h1>
+                <h1 className="text-base font-bold">Sentence Senti-mentor</h1>
                 <button
                     className="sm:hidden text-white focus:outline-none"
                     onClick={() => setIsOpen(!isOpen)}

@@ -1,67 +1,72 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useFirebaseContext } from "../context/FirebaseContext.jsx";
 import { db } from "../context/ChatContext.jsx";
 import { collection, getDocs } from "firebase/firestore";
 
 const NoHistory = () => {
   return (
-    <div className="flex flex-col mt-4 items-center justify-center h-full text-center space-y-4">
-      <p className="text-gray-500 text-lg font-medium">
-        No history found
-      </p>
-      <p className="text-gray-400 text-sm">
-        Start correcting your sentences to see your history here.
-      </p>
+    <div className="flex flex-col mt-20 items-center justify-center text-center space-y-2">
+      <p className="text-gray-400 text-xl font-semibold">No history found</p>
+      <p className="text-gray-500 text-sm">Start correcting your sentences to view your history here.</p>
     </div>
   );
 };
 
-
 const HistoryPage = () => {
   const [history, setHistory] = useState([]);
   const { user } = useFirebaseContext();
-  const userID = user?user.uid:"";
+  const userID = user ? user.uid : "";
 
   const fetchHistory = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "chats"));
+      const entries = [];
       querySnapshot.forEach((doc) => {
-        if (doc.data().user_id === userID) {
-          setHistory((prevHistory) => {
-            const newEntry = doc.data();
-            return prevHistory.some(history => history.user_id === newEntry.user_id && history.original_text === newEntry.original_text) 
-              ? prevHistory 
-              : [...prevHistory, newEntry];
-          });
-          console.log(doc.data());
-          
+        const data = doc.data();
+        if (data.user_id === userID) {
+          if (!entries.some(h => h.original_text === data.original_text && h.user_id === data.user_id)) {
+            entries.push(data);
+          }
         }
       });
-
+      setHistory(entries.reverse());
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setHistory([]);
     }
   };
 
   useEffect(() => {
     fetchHistory();
-  }, [user])
+  }, [user]);
 
   return (
-    <div className="flex flex-col items-center pt-40 p-10 space-y-4 h-screen bg-cover bg-center bg-gray-900" >
-      {history.length > 0 ? history.map((chat, index) => (
-        <div
-          key={index}
-          className="p-4 mx-10 w-full md:w-1/2 border rounded-lg  bg-opacity-5 hover:shadow-[0px_9px_22px_0px_rgba(59,_130,_246,_0.5)] transition-shadow duration-500 ease-in-out"
-        >
-          <p className="text-white font-semibold">Original Text: {chat.original_text}</p>
-          <p className="text-white font-extrabold mt-2"> Corrected Text: {chat.processed_text}</p>
+    <div className="min-h-screen w-full bg-[#101828] p-6 flex flex-col items-center">
+      <h1 className="text-4xl md:text-5xl font-bold text-center text-white mt-20 mb-10 tracking-tight">
+        🕓 Your History
+      </h1>
+
+      {history.length > 0 ? (
+        <div className="w-full max-w-4xl space-y-6">
+          {history.map((chat, index) => (
+            <div
+              key={index}
+              className="bg-white/5 border border-white/10 backdrop-blur-lg p-6 rounded-2xl transition-shadow duration-300 hover:shadow-lg"
+            >
+              <p className="text-[#F4F9FF] font-medium">
+                <span className="text-sm text-gray-400">Original:</span> {chat.original_text}
+              </p>
+              <p className="text-[#4E8FF8] font-semibold mt-2">
+                <span className="text-sm text-gray-400">Corrected:</span> {chat.processed_text}
+              </p>
+            </div>
+          ))}
         </div>
-      )) : <NoHistory />}
+      ) : (
+        <NoHistory />
+      )}
     </div>
+  );
+};
 
-  )
-}
-
-export default HistoryPage
+export default HistoryPage;

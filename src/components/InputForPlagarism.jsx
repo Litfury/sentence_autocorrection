@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { useChatContext } from "../context/ChatContext.jsx";
-import { useFirebaseContext } from "../context/FirebaseContext.jsx";
+import { useChatContext } from "../context/PlagarismContext.jsx";
+import UploadPlagrism from "./UploadPlagrism.jsx"
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import axios from "axios";
 
 const InputForPlagarism = () => {
   const [text, setText] = useState("");
 
-  const { setChatOutput, setLoading, createChat } = useChatContext();
+  const { setChatOutput, setLoading } = useChatContext();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,7 +18,7 @@ const InputForPlagarism = () => {
     try {
 
       const apiKey = import.meta.env.VITE_Gemini_API_key;
-      const systemPrompt = "You are an AI-powered sentence corrector. Your task is to receive text as input and detect plagarism in the content and give an output only in numbers that how much percentage is written by AI, how much percentage is fetched from internet and how much percentage of the text is written by human. Do not give anything else as an output except these numbers, if unable to process then return all the values as 0. Return it in this sample format 'AI-generated - 0%, From-internet - 2% and Human-content - 98%'";
+      const systemPrompt = "You are an AI-powered Plagarism detector. Your task is to receive text as input and detect plagarism in the content and give an output only in numbers that how much percentage is written by AI, how much percentage is fetched from internet and how much percentage of the text is written by human. Do not give anything else as an output except these numbers, if unable to process then return all the values as 0. Return it in this sample format 'AI-generated - 0%, From-internet - 2% and Human-content - 98%'";
       const sentence = text;
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -34,7 +33,6 @@ const InputForPlagarism = () => {
 
       console.log(chat_data);
       setChatOutput(chat_data);
-      createChat(chat_data.original_text, chat_data.processed_text);
 
 
 
@@ -59,11 +57,12 @@ const InputForPlagarism = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Write your text here..."
-        className="w-full h-32 px-4 py-2 bg-transparent text-white focus:outline-none "
+        className="w-full h-32 px-4 py-2 bg-gray-700 rounded text-white focus:outline-none "
       ></textarea>
+      <UploadPlagrism/>
       <button
         type="submit"
-        className="w-full mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:hover:bg-blue-600 transition-colors focus:outline-none"
+        className="w-full mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:hover:bg-blue-200 transition-colors focus:outline-none"
       >
         Check Plagarism
       </button>

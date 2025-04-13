@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, use } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Navigate } from 'react-router-dom'
 import { auth, useFirebaseContext } from "../context/FirebaseContext.jsx";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
@@ -26,21 +27,29 @@ export const useChatContext = () => useContext(chatContext);
 const ChatContext = (props) => {
   const [currentChat, setChatOutput] = useState({});
   const [loading, setLoading] = useState(false);
-  const { user } = useFirebaseContext();
+  const [user, isLoading] = useAuthState(auth);
   const userID = user ? user.uid : "";
+  
 
+  useEffect(() => {
+    console.log(currentChat);
+  }, [currentChat]);
 
   const createChat = async (original_text, processed_text) => {
-    try {
-      const docRef = await addDoc(collection(db, "chats"), {
-        user_id: userID,
-        original_text: original_text,
-        processed_text: processed_text,
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
+    
+    if(user){
+      try {
+        const docRef = await addDoc(collection(db, "chats"), {
+          user_id: userID,
+          original_text: original_text,
+          processed_text: processed_text,
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
     }
+    
   };
 
   return <chatContext.Provider value={{ currentChat, setChatOutput, loading, setLoading, createChat }}>

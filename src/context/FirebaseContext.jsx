@@ -71,7 +71,7 @@ export const FirbaseProvider = (props) => {
     const logout = () => {
         return signOut(auth).then(() => {
             console.log("Signed Out from logout button");
-            navigate('/login');
+            navigate('/');
             
             // Sign-out successful.
         }).catch((error) => {

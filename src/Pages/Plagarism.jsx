@@ -53,7 +53,7 @@ const Plagarism = () => {
       </div>
 
       {/* File Upload Section */}
-      <div className="mt-12 w-full max-w-screen-lg flex flex-col items-center px-2 sm:px-4">
+      {/* <div className="mt-12 w-full max-w-screen-lg flex flex-col items-center px-2 sm:px-4">
         <h2 className="text-2xl text-white mb-4">Upload Your File</h2>
         <input
           type="file"
@@ -66,7 +66,7 @@ const Plagarism = () => {
             <p>File Size: {(file.size / 1024).toFixed(2)} KB</p>
           </div>
         )}
-      </div>
+      </div> */}
 
     </div>
   );

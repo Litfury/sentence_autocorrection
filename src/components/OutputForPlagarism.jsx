@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useChatContext } from "../context/ChatContext.jsx";
+import { useChatContext } from "../context/PlagarismContext.jsx";
 import { RingLoader } from 'react-spinners'
 
 const OutputForPlagarism = () => {

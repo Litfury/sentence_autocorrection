@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useFirebaseContext } from "../context/FirebaseContext.jsx";
+import { auth,useFirebaseContext } from "../context/FirebaseContext.jsx";
 import { db } from "../context/ChatContext.jsx";
 import { collection, getDocs } from "firebase/firestore";
+import { Navigate } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const NoHistory = () => {
+  
   return (
     <div className="flex flex-col mt-20 items-center justify-center text-center space-y-2">
       <p className="text-gray-400 text-xl font-semibold">No history found</p>
@@ -13,9 +16,10 @@ const NoHistory = () => {
 };
 
 const HistoryPage = () => {
+  const [user, loading] = useAuthState(auth);
   const [history, setHistory] = useState([]);
-  const { user } = useFirebaseContext();
-  const userID = user ? user.uid : "";
+  const { user: firebaseUser } = useFirebaseContext();
+  const userID = firebaseUser ? firebaseUser.uid : "";
 
   const fetchHistory = async () => {
     try {
@@ -40,6 +44,11 @@ const HistoryPage = () => {
     fetchHistory();
   }, [user]);
 
+  if (!user) {
+    console.log("user not logged in");
+    
+    return <Navigate to="/login" />;
+  }
   return (
     <div className="min-h-screen w-full bg-[#101828] p-6 flex flex-col items-center">
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mt-20 mb-10 tracking-tight">

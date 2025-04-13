@@ -23,7 +23,7 @@ const OutputComponent = () => {
           <p className="text-gray-100 my-4">Corrected Text: <span className="font-bold">{currentChat.processed_text}</span></p>
         </>
 
-        : <h1 className="text-2xl font-bold text-gray-100">Start correcting your text</h1>}
+        : <h1 className="text-2xl font-bold text-gray-100 text-center">Start correcting your text</h1>}
     </div>
   )
 }

@@ -3,60 +3,58 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const description =
-    "This tool helps enhance sentence quality and detect plagiarism. Our Sentence Auto-corrector analyzes grammar, punctuation, and spelling using NLP, while the Plagiarism Checker compares your input against a vast database to ensure originality and credibility.";
+    "Elevate your writing with our intelligent tools. Whether correcting grammar or ensuring originality, our AI-powered Sentence Auto-corrector and Plagiarism Checker provide accurate, reliable results that empower your creativity.";
 
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center bg-gray-900 text-gray-200 p-6">
-      
-      {/* Title Section */}
-      <h1 className="mt-19 text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#fff7d6] via-[#dee6fd] to-[#f1f1e6] drop-shadow-lg mb-6">
-         Welcome to Sentence Senti-Mentor
-      </h1>
-      
-      <p className="text-lg text-center max-w-3xl text-gray-400 mb-10">
-        {description}
-      </p>
+    <main className="min-h-screen bg-[#101828] text-[#F4F9FF] px-6 py-12 flex flex-col justify-center items-center font-sans">
 
-      {/* Button Section */}
-      <div className="flex flex-col md:flex-row gap-6 mb-16">
+      {/* Header */}
+      <header className="text-center mb-16 mt-12"> {/* <-- Added mt-12 here */}
+        <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#dee6fd] via-[#4E8FF8] to-[#F4F9FF] text-transparent bg-clip-text mb-4">
+          Sentence Senti-Mentor
+        </h1>
+        <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-400">
+          {description}
+        </p>
+      </header>
+
+      {/* Buttons */}
+      <section className="flex flex-col md:flex-row gap-6 mb-20">
         <Link
           to="/sentence"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-lg shadow-md"
+          className="px-6 py-3 rounded-lg text-lg font-medium bg-[#4E8FF8] text-white hover:bg-blue-600 transition duration-300 shadow-lg"
         >
-          Sentence Auto-corrector
+          ✍️ Sentence Auto-corrector
         </Link>
-
         <Link
           to="/plagarism"
-          className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-lg shadow-md"
+          className="px-6 py-3 rounded-lg text-lg font-medium bg-green-500 text-white hover:bg-green-600 transition duration-300 shadow-lg"
         >
-          Plagiarism Checker
+          🕵️ Plagiarism Checker
         </Link>
-      </div>
+      </section>
 
-      {/* Visual Section */}
-      <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl">
-        <div className="md:w-2/3 px-4 mb-6 md:mb-0">
-          <h2 className="text-4xl font-bold mb-4">Why use our tools?</h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
-            Whether you're refining your writing or checking for originality,
-            our tools are built with advanced NLP and AI models to ensure top-notch accuracy and usability. Elevate your writing with ease and confidence.
+      {/* Features */}
+      <section className="flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl gap-10 w-full px-4">
+        <div className="md:w-2/3 text-center md:text-left backdrop-blur-lg bg-white/10 border border-white/10 rounded-2xl p-6 shadow-xl transition-all duration-300">
+          <h2 className="text-4xl font-semibold mb-9 ma-9 text-[#F4F9FF]">Why Choose Us?</h2>
+          <p className="text-gray-300 text-lg leading-relaxed">
+            Backed by powerful AI and NLP algorithms, our tools help users of all kinds — from students to professionals — produce clear, error-free, and original content. Accuracy meets simplicity.
           </p>
         </div>
-        <div className="md:w-1/3">
+
+        <div className="md:w-1/3 w-full">
           <img
             src="../../public/vid.gif"
             alt="Writing tools illustration"
-            className="rounded-lg shadow-lg w-full"
+            className="w-full rounded-xl shadow-xl"
           />
         </div>
-      </div>
-    </div>
+      </section>
+
+
+    </main>
   );
 };
 
 export default Home;
-
-
-
-

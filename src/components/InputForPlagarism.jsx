@@ -63,7 +63,7 @@ const InputForPlagarism = () => {
       ></textarea>
       <button
         type="submit"
-        className="w-full mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors focus:outline-none border-purple-400 transition-all duration-300 shadow-inner"
+        className="w-full mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:hover:bg-blue-600 transition-colors focus:outline-none"
       >
         Check Plagarism
       </button>

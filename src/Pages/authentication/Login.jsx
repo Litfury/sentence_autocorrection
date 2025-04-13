@@ -74,7 +74,7 @@ const Login = () => {
             </div>
             <div className="w-1/2 h-screen">
                 <img
-                    src="../../../public/waterfall.gif"
+                    src="/waterfall.gif"
                     alt="Login Illustration"
                     className="w-full h-full object-cover"
                 />
@@ -85,3 +85,4 @@ const Login = () => {
 };
 
 export default Login;
+

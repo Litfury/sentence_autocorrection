@@ -46,7 +46,7 @@ const Sentence = () => {
           </p>
         </div>
         <img
-          src="../../public/vid.gif" 
+          src="/vid.gif" 
           alt="Your GIF Description"
           className="ml-8 w-2/10"
           style={{ maxWidth: 'none', height: 'auto' }}

@@ -75,7 +75,7 @@ const SignUp = () => {
       {/* Right half - Image */}
       <div className="w-1/2 h-screen">
         <img
-          src="../../../public/waterfall.gif" // Replace with the actual URL or path to your image
+          src="/waterfall.gif" // Replace with the actual URL or path to your image
           alt="Signup Illustration"
           className="w-full h-full object-cover"
         />

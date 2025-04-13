@@ -45,7 +45,7 @@ const Home = () => {
 
         <div className="md:w-1/3 w-full">
           <img
-            src="../../public/vid.gif"
+            src="/vid.gif"
             alt="Writing tools illustration"
             className="w-full rounded-xl shadow-xl"
           />

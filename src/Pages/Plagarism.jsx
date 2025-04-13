@@ -6,7 +6,7 @@ import OutputForPlagarism from '../components/OutputForPlagarism.jsx';
 
 const Plagarism = () => {
   const description =
-    "A plagiarism checker is an advanced tool designed to verify the originality of written content by comparing it against a vast database of online sources, academic papers, and published materials. It detects exact matches, paraphrased text, and potential instances of unintentional copying, helping users maintain academic and professional integrity. Using powerful algorithms and Natural Language Processing (NLP), it highlights similarities and provides detailed reports with source links, originality scores, and contextual insights. These tools can identify not only verbatim matches but also nuanced rewording, improper citations, and structural similarities. Whether you're a student, researcher, educator, or content creator, a plagiarism checker ensures your work is authentic, properly cited, ethically sound, and free from duplication—promoting credibility and responsible writing practices. By encouraging originality and transparency, it plays a vital role in upholding academic standards, protecting intellectual property, and building trust in both educational and professional environments.";
+    "A plagiarism checker is a powerful tool that ensures the originality of written content by comparing it against a wide database of online sources, academic papers, and publications. It detects exact matches, paraphrasing, and improper citations using advanced algorithms and NLP. The tool highlights similarities, provides source links, and generates originality reports to help users maintain academic and professional integrity. Ideal for students, educators, and content creators, it promotes ethical writing, protects intellectual property, and upholds credibility in academic and professional settings.";
 
   const [file, setFile] = useState(null);
 
@@ -37,9 +37,9 @@ const Plagarism = () => {
 
       {/* About Me Section */}
       <div className="mt-16 w-full max-w-screen-lg flex flex-col md:flex-row items-center justify-between gap-8 px-2 sm:px-4">
-        <div className="text-center md:text-left flex-1">
-          <h2 className="text-3xl sm:text-5xl font-bold mb-6">About Me</h2>
-          <p className="text-base sm:text-xl text-gray-400">
+        <div className="text-center md:text-left flex-1 backdrop-blur-lg bg-white/10 border border-white/10 rounded-2xl p-6 shadow-xl transition-all duration-300 hover:border-[#f1f1e6] transition-all duration-300 shadow-inner">
+          <h2 className="text-3xl sm:text-5xl font-bold mb-6 text-center">About Me</h2>
+          <p className="text-base sm:text-xl text-gray-400 text-justify ">
             {description}
           </p>
         </div>
@@ -51,23 +51,6 @@ const Plagarism = () => {
           />
         </div>
       </div>
-
-      {/* File Upload Section */}
-      {/* <div className="mt-12 w-full max-w-screen-lg flex flex-col items-center px-2 sm:px-4">
-        <h2 className="text-2xl text-white mb-4">Upload Your File</h2>
-        <input
-          type="file"
-          onChange={handleFileUpload}
-          className="border-2 border-[#4E8FF8] bg-transparent text-white py-2 px-4 rounded-md cursor-pointer focus:outline-none hover:bg-[#4E8FF8] hover:text-[#101828] transition-all duration-300"
-        />
-        {file && (
-          <div className="mt-4 text-lg text-white text-center">
-            <p>Uploaded File: {file.name}</p>
-            <p>File Size: {(file.size / 1024).toFixed(2)} KB</p>
-          </div>
-        )}
-      </div> */}
-
     </div>
   );
 };

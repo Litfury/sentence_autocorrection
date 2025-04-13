@@ -49,7 +49,7 @@ const HistoryPage = () => {
   }, [user])
 
   return (
-    <div className="flex flex-col items-center pt-40 p-10 space-y-4 h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1642355008521-236f1d29d0a8?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+    <div className="flex flex-col items-center pt-40 p-10 space-y-4 h-screen bg-cover bg-center bg-gray-900" >
       {history.length > 0 ? history.map((chat, index) => (
         <div
           key={index}

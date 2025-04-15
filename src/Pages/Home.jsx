@@ -39,7 +39,7 @@ const Home = () => {
         <div className="md:w-2/3 text-center md:text-left backdrop-blur-lg bg-white/10 border border-white/10 rounded-2xl p-6 shadow-xl transition-all duration-300 hover:border-[#f1f1e6] transition-all duration-300 shadow-inner">
           <h2 className="text-4xl font-semibold mb-9 ma-9 text-[#F4F9FF]">Why Choose Us?</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
-          Backed supported by powerful algorithms, our tools help users of all kinds — from students to professionals — produce clear, error-free, and original content. Accuracy meets simplicity with intuitive design, real-time feedback, and seamless experience.
+          Backed by powerful algorithms, our tools help users of all kinds — from students to professionals — produce clear, error-free, and original content. Accuracy meets simplicity with intuitive design, real-time feedback, and seamless experience.
           </p>
         </div>
 

@@ -14,7 +14,7 @@ const UploadPlagrism = () => {
         try {
             const apiKey = import.meta.env.VITE_API_key;
 
-            const systemPrompt = "You are an AI-powered Plagarism detector. Your task is to receive text as input and detect plagarism in the content and give an output only in numbers that how much percentage is written by AI, how much percentage is fetched from internet and how much percentage of the text is written by human. Do not give anything else as an output except these numbers, if unable to process then return all the values as 0. Return it in this sample format 'AI-generated - 4%, From-internet - 2% and Human-content - 94%'";
+            const systemPrompt = "You are an AI-powered Plagarism detector. Your task is do a deep search on the internet, web, search engines and news sites for the plagarism detection, you also need to detect AI generated content in the text attached and detect plagarism in the content and give an output only in numbers that how much percentage of the text is plagarised and how much percentage is written by human. Do not give anything else as an output except these numbers, if unable to process then return all the values as 0. Return the output in this specificed sample format only 'Plagarism - 72% and Human-content - 28%";
             const sentence = text;
             const genAI = new GoogleGenerativeAI(apiKey);
             const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -31,9 +31,9 @@ const UploadPlagrism = () => {
             setLoading(false);
         } catch (err) {
             try {
-                const apiKey = import.meta.env.VITE_API_key2;
+                const apiKey = import.meta.env.VITE_API_key_2;
 
-                const systemPrompt = "You are an AI-powered Plagarism detector. Your task is to receive text as input and detect plagarism in the content and give an output only in numbers that how much percentage is written by AI, how much percentage is fetched from internet and how much percentage of the text is written by human. Do not give anything else as an output except these numbers, if unable to process then return all the values as 0. Return it in this sample format 'AI-generated - 0%, From-internet - 2% and Human-content - 98%'";
+                const systemPrompt = "You are an AI-powered Plagarism detector. Your task is do a deep search on the internet, web, search engines and news sites for the plagarism detection, you also need to detect AI generated content in the text attached and detect plagarism in the content and give an output only in numbers that how much percentage of the text is plagarised and how much percentage is written by human. Do not give anything else as an output except these numbers, if unable to process then return all the values as 0. Return the output in this specificed sample format only 'Plagarism - 72% and Human-content - 28%";
                 const sentence = text;
                 const genAI = new GoogleGenerativeAI(apiKey);
                 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });

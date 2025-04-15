@@ -68,7 +68,7 @@ const UploadPlagrism = () => {
     }
     return (
         <div className="mt-12 w-full max-w-screen-lg flex flex-col items-center px-2 sm:px-4">
-            <h2 className="text-2xl text-white mb-4">or Upload Your File</h2>
+            <h2 className="text-2xl text-white text-center mb-4">or Upload Your File</h2>
             <input
                 type="file"
                 accept=".txt"

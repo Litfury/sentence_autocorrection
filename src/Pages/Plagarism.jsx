@@ -23,7 +23,7 @@ const Plagarism = () => {
       {/* Content card: Input/Output Area */}
       <div className="w-full max-w-screen-lg rounded-xl bg-white/10 p-6 md:p-8 border border-white/10 hover:border-[#f1f1e6] transition-all duration-300 shadow-inner">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#fff7d6] via-[#dee6fd] to-[#f1f1e6] drop-shadow-lg mb-10">
-          🚀 Plagiarism Checker
+          🚀 Plagarism Checker
         </h1>
 
         <div>

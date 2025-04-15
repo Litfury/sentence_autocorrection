@@ -18,7 +18,7 @@ const InputForPlagarism = () => {
     try {
 
       const apiKey = import.meta.env.VITE_API_key;
-      const systemPrompt = "You are an AI-powered Plagarism detector. Your task is to receive text as input and detect plagarism in the content and give an output only in numbers that how much percentage is plagarised and how much percentage of the text is written by human. Do not give anything else as an output except these numbers, if unable to process then return all the values as 0. Return it in this sample format 'Plagarism - 2% and Human-content - 98%'";
+      const systemPrompt = "You are an AI-powered Plagarism detector. Your task is to receive text as input and detect plagarism in the content and give an output only in numbers that how much percentage is AI-generated and fetched from how much percentage of the text is written by human. Do not give anything else as an output except these numbers, if unable to process then return all the values as 0. Return it in this sample format 'Plagarism - 72% and Human-content - 28%'";
       const sentence = text;
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
